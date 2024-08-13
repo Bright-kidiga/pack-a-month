@@ -1,6 +1,7 @@
 package com.pam.packamonth.Entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Table(name = "users")
 @Entity
+@Data
 public class User implements UserDetails {
 
     @Id
