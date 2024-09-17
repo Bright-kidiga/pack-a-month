@@ -33,6 +33,7 @@ public class SecurityConfiguration {
         http.csrf(csrf -> csrf.disable())  // Disable CSRF protection
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()  // Allow all requests to /auth/**
+                        .requestMatchers("/api/cycle/**").permitAll()
                         .anyRequest().authenticated()  // All other requests require authentication
                 )
                 .sessionManagement(session -> session
