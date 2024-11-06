@@ -4,15 +4,14 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 const Splashscreen = () => {
     return (
         <View style={styles.container}>
-            {/* Logo */}
-            {/*<Image*/}
-            {/*    source={require('../assets/favicon.png')} // Update the path to your logo*/}
-            {/*    style={styles.logo}*/}
-            {/*    resizeMode="contain"*/}
-            {/*/>*/}
-
             {/* Title */}
             <Text style={styles.title}>A PACK A MONTH</Text>
+
+            {/* Logo */}
+            <Image
+                source={require('../../../assets/favicon.png')} // Update the path to your logo
+                style={styles.logo}
+            />
 
             {/* Tagline */}
             <Text style={styles.tagline}>Shielding the Future</Text>
@@ -29,12 +28,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6D5DA', // Updated background color
     },
     logo: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 150, // Adjust size based on your image
-        height: 150,
-        marginBottom: 20,
+        margin: 8,
     },
     title: {
         fontSize: 30,

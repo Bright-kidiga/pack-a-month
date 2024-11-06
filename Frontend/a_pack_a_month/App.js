@@ -9,7 +9,7 @@ import HomePage from "./src/components/HomePage/HomePage";
 export default function App() {
   return (
       <View style={styles.container}>
-        <HomePage/>
+        <Login/>
         <StatusBar style="auto" />
       </View>
   );

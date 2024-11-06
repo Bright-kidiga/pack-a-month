@@ -7,11 +7,13 @@ import com.pam.packamonth.dtos.LoginResponse;
 import com.pam.packamonth.dtos.LoginUserDto;
 import com.pam.packamonth.dtos.OtpRequestDto;
 import com.pam.packamonth.dtos.RegisterUserDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/auth")
 @RestController
+@Slf4j
 public class AuthenticationController {
     private final JwtService jwtService;
     private final AuthenticationService authenticationService;
@@ -24,6 +26,8 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
         User registeredUser = authenticationService.signup(registerUserDto);
+
+        log.info("Sign Up {}", registeredUser);
         return ResponseEntity.ok(registeredUser);
     }
 
@@ -35,6 +39,8 @@ public class AuthenticationController {
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(jwtToken);
         loginResponse.setExpiresIn(jwtService.getExpirationTime());
+
+        log.info("Log in {}", loginResponse);
 
         return ResponseEntity.ok(loginResponse);
     }

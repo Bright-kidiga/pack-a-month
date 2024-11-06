@@ -11,7 +11,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-@Table(name = "users")
 @Entity
 @Data
 public class User implements UserDetails {
@@ -19,7 +18,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private Integer Id;
+    private Integer id;
+
     @Column(nullable = false)
     private String fullName;
 
@@ -42,9 +42,10 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of();  // Return appropriate authorities if needed
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
@@ -73,5 +74,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 }

@@ -11,7 +11,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://your-backend-url/login', {
+            const response = await fetch('http://localhost:8080/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -21,6 +21,8 @@ const Login = () => {
                     password: password,
                 }),
             });
+
+            console.log('Login response {}', response)
 
             if (!response.ok) {
                 throw new Error('Login failed');
